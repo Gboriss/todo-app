@@ -94,7 +94,7 @@ main ul li {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
+  padding: 20px 20px;
   border-bottom: 1px solid rgba(17, 17, 17, 0.1);
   list-style-type: none;
   background: #eee;
@@ -206,6 +206,50 @@ ul li.editMode label {
 
 ul li.editMode button.checkbox {
   margin-right: 25px;
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: 350px;
+    padding: 10px 8px;
+    margin: 0 auto;
+  }
+
+  header {
+    width: 350px;
+  }
+  header .search input[type=text] {
+    width: 80%;
+  }
+  header .search button {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  main {
+    width: 350px;
+  }
+  main ul {
+    margin: 0;
+    padding: 0;
+  }
+  main ul li {
+    padding: 20px 0;
+    margin: 0;
+  }
+  main ul li img {
+    width: 20px;
+    height: 20px;
+  }
+  main ul li button.edit,
+main ul li button.delete,
+main ul li button.save {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    font-size: 20px;
+  }
 }
 
 /*# sourceMappingURL=/main.3d6386d6.css.map */
