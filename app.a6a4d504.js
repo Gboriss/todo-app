@@ -117,79 +117,60 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"images/p.png":[function(require,module,exports) {
+module.exports = "/p.18b21ab0.png";
+},{}],"images/basket.png":[function(require,module,exports) {
+module.exports = "/basket.6173fabd.png";
+},{}],"src/app.js":[function(require,module,exports) {
+"use strict";
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createNewElement;
+var addButton = document.getElementById('add');
+var inputTask = document.getElementById('new-task');
+var unfinishedTasks = document.getElementById('incomplete-tasks');
+var finishedTasks = document.getElementById('finished-tasks');
+
+function createNewElement(task, load) {
+  var listItem = document.createElement('li');
+  var checkbox = document.createElement('button');
+
+  if (load) {
+    checkbox.className = 'checkbox icon';
+    checkbox.innerHTML = '<span class="material-icons">check_box</span>';
+  } else {
+    checkbox.className = 'checkbox icon';
+    checkbox.innerHTML = '<span class="material-icons">check_box_outline_blank</span>';
   }
 
-  return bundleURL;
+  var label = document.createElement('label');
+  label.innerHTML = task;
+  var input = document.createElement('input');
+  input.type = "text";
+  var editButton = document.createElement('button');
+  editButton.className = 'edit icon';
+  var img = new Image();
+  img.src = require('../images/p.png');
+  editButton.appendChild(img);
+  var deleteButton = document.createElement('button');
+  deleteButton.className = 'delete icon'; // deleteButton.innerHTML ='<span class="material-icons">delete</span>'
+
+  var del = new Image();
+  del.src = require('../images/basket.png');
+  deleteButton.appendChild(del); // let img = new Image()
+  // img.src = require('../images/p.png')
+  // deleteButton.innerHTML = '<img src="'+img.src+'"/>'
+
+  listItem.appendChild(checkbox);
+  listItem.appendChild(label);
+  listItem.appendChild(input);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+  return listItem;
 }
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../images/p.png":"images/p.png","../images/basket.png":"images/basket.png"}],"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +374,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/main.3d6386d6.js.map
+},{}]},{},["C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.js"], null)
+//# sourceMappingURL=/app.a6a4d504.js.map
