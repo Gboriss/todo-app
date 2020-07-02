@@ -1,4 +1,4 @@
-# [vuejs-todo-app](https://gboriss.github.io/todo-app/)
+# [todo-app](https://gboriss.github.io/todo-app/)
 ### Todo app on javascript
 
 ![vuejs-todo-app screenshot](https://i.ibb.co/g33jqsX/todo.png)
